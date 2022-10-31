@@ -1,146 +1,62 @@
-#include <stdio.h>
-#include <string.h>
-#define MAXIMA_LONGITUD_CADENA 100
-
-
-void calcularSignoZodiacal(int diaNacimiento, int mesNacimiento, char signo[MAXIMA_LONGITUD_CADENA])
-{
-    switch (mesNacimiento)
-    {
-    case 1:
-        if (diaNacimiento <= 20)
-        {
-
-            strcpy(signo, "Capricornio");
-        }
-        else
-        {
-            strcpy(signo, "Acuario");
-        }
-        break;
-    case 2:
-        if (diaNacimiento <= 18)
-        {
-            strcpy(signo, "Acuario");
-        }
-        else
-        {
-            strcpy(signo, "Piscis");
-        }
-        break;
-    case 3:
-        if (diaNacimiento <= 20)
-        {
-            strcpy(signo, "Piscis");
-        }
-        else
-        {
-            strcpy(signo, "Aries");
-        }
-        break;
-    case 4:
-        if (diaNacimiento <= 20)
-        {
-            strcpy(signo, "Aries");
-        }
-        else
-        {
-            strcpy(signo, "Tauro");
-        }
-        break;
-    case 5:
-        if (diaNacimiento <= 21)
-        {
-            strcpy(signo, "Tauro");
-        }
-        else
-        {
-            strcpy(signo, "Geminis");
-        }
-        break;
-    case 6:
-        if (diaNacimiento <= 21)
-        {
-            strcpy(signo, "Geminis");
-        }
-        else
-        {
-            strcpy(signo, "Cancer");
-        }
-        break;
-    case 7:
-        if (diaNacimiento <= 22)
-        {
-            strcpy(signo, "Cancer");
-        }
-        else
-        {
-            strcpy(signo, "Leo");
-        }
-        break;
-    case 8:
-        if (diaNacimiento <= 23)
-        {
-            strcpy(signo, "Leo");
-        }
-        else
-        {
-            strcpy(signo, "Virgo");
-        }
-        break;
-    case 9:
-        if (diaNacimiento <= 23)
-        {
-            strcpy(signo, "Virgo");
-        }
-        else
-        {
-            strcpy(signo, "Libra");
-        }
-        break;
-    case 10:
-        if (diaNacimiento <= 23)
-        {
-            strcpy(signo, "Libra");
-        }
-        else
-        {
-            strcpy(signo, "Escorpio");
-        }
-        break;
-    case 11:
-        if (diaNacimiento <= 22)
-        {
-            strcpy(signo, "Escorpio");
-        }
-        else
-        {
-            strcpy(signo, "Sagitario");
-        }
-        break;
-    case 12:
-        if (diaNacimiento <= 21)
-        {
-            strcpy(signo, "Sagitario");
-        }
-        else
-        {
-            strcpy(signo, "Capricornio");
-        }
-        break;
-    }
-}
-
-int main(){
-    char signo[MAXIMA_LONGITUD_CADENA] = "";
-    calcularSignoZodiacal(28, 11, signo);
-    printf("El signo zodiacal es: %s\n", signo);
-
-    int mes, dia;
-    printf("Ingresa tu mes de nacimiento [1-12]: ");
-    scanf("%d", & mes);
-    printf("Ingresa tu dia de nacimiento [1-31]: ");
-    scanf("%d", & dia);
-    calcularSignoZodiacal(dia, mes, signo);
-    printf("Típico de %s\n", signo);
-}
+Proceso EstudiantesDeLaUniversidad
+    estudiantes_de_ingenieria <- 0;
+    a <- 0;
+    b <- 0;
+    c <- 0;
+    Escribir Sin Saltar "Ingresa el valor de n:";
+    Leer n;
+    Para i<-1 Hasta n Con Paso 1 Hacer
+        Escribir "PROCESO ", i;
+        Escribir Sin Saltar "Ingresa el valor de edad:";
+        Leer edad;
+        Escribir "Selecciona el valor de sexo.";
+        Escribir "    1.- Masculino";
+        Escribir "    2.- Femenino";
+        Escribir Sin Saltar "    :";
+        Repetir
+            Leer sexo;
+            Si sexo<1 O sexo>2 Entonces
+                Escribir Sin Saltar "Valor incorrecto. Ingrésalo nuevamente.: ";
+            FinSi
+        Hasta Que sexo>=1 Y sexo<=2;
+        Escribir "Selecciona el valor de carrera.";
+        Escribir "    1.- Ingeniería";
+        Escribir "    2.- otra carrera";
+        Escribir Sin Saltar "    :";
+        Repetir
+            Leer carrera;
+            Si carrera<1 O carrera>2 Entonces
+                Escribir Sin Saltar "Valor incorrecto. Ingrésalo nuevamente.: ";
+            FinSi
+        Hasta Que carrera>=1 Y carrera<=2;
+        Si carrera = 1 Entonces
+            estudiantes_de_ingenieria <- estudiantes_de_ingenieria+1;
+            a <- a+edad;
+        FinSi
+        Si sexo = 1 Entonces
+            b <- b+1;
+        FinSi
+        Si carrera = 1 Y sexo = 2 Entonces
+            c <- c+1;
+        FinSi
+        Escribir "";
+    FinPara
+    Si estudiantes_de_ingenieria = 0 Entonces
+        a <- 0;
+    SiNo
+        a <- a/estudiantes_de_ingenieria;
+    FinSi
+    Si n = 0 Entonces
+        b <- 0;
+    SiNo
+        b <- 100.0*b/n;
+    FinSi
+    Si estudiantes_de_ingenieria = 0 Entonces
+        c <- 0;
+    SiNo
+        c <- 100.0*c/estudiantes_de_ingenieria;
+    FinSi
+    Escribir "Valor de estudiantes de ingenieria: ", estudiantes_de_ingenieria;
+    Escribir "Valor de a: ", a;
+    Escribir "Valor de b: ", b;
+    Escribir "Valor de c: ", c;
